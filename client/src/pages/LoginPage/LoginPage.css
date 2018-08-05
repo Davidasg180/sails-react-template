@@ -1,0 +1,16 @@
+﻿.LoginPage {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .LoginPage:before {
+        display: table;
+        content: " ";
+    }
+
+    .LoginPage::after {
+        clear: both;
+        display: table;
+        content: " ";
+    }
