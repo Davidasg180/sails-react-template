@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38ff7cde-9032-4a45-bfa5-04fcfbc30be4}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>app.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <StartWebBrowser>True</StartWebBrowser>
+    <ScriptArguments>start</ScriptArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Compile Include="app.js" />
+    <Compile Include="Gruntfile.js" />
+    <Content Include="assets\robots.txt" />
+    <Content Include="assets\index.html" />
+    <Content Include="assets\favicon.ico" />
+    <Content Include="assets\asset-manifest.json" />
+    <Content Include="assets\manifest.json" />
+    <Compile Include="assets\service-worker.js" />
+    <Compile Include="config\blueprints.js" />
+    <Compile Include="config\bootstrap.js" />
+    <Compile Include="config\custom.js" />
+    <Compile Include="config\datastores.js" />
+    <Compile Include="config\globals.js" />
+    <Compile Include="config\http.js" />
+    <Compile Include="config\i18n.js" />
+    <Compile Include="config\log.js" />
+    <Compile Include="config\models.js" />
+    <Compile Include="config\policies.js" />
+    <Compile Include="config\routes.js" />
+    <Compile Include="config\security.js" />
+    <Compile Include="config\session.js" />
+    <Compile Include="config\sockets.js" />
+    <Compile Include="config\views.js" />
+    <Compile Include="tasks\pipeline.js" />
+    <Content Include="views\404.ejs" />
+    <Content Include="views\500.ejs" />
+    <Compile Include="api\models\User.js" />
+    <Compile Include="api\policies\checkForUser.js" />
+    <Compile Include="api\policies\isAuthenticated.js" />
+    <Compile Include="assets\dependencies\sails.io.js" />
+    <Content Include="assets\static\css\main.07d16d58.css" />
+    <Compile Include="assets\static\js\main.2d3158d4.js" />
+    <Content Include="assets\static\media\bg1.ea1fb5a3.jpg" />
+    <Compile Include="config\env\production.js" />
+    <Content Include="config\locales\de.json" />
+    <Content Include="config\locales\en.json" />
+    <Content Include="config\locales\es.json" />
+    <Content Include="config\locales\fr.json" />
+    <Compile Include="tasks\config\babel.js" />
+    <Compile Include="tasks\config\clean.js" />
+    <Compile Include="tasks\config\coffee.js" />
+    <Compile Include="tasks\config\concat.js" />
+    <Compile Include="tasks\config\copy.js" />
+    <Compile Include="tasks\config\cssmin.js" />
+    <Compile Include="tasks\config\hash.js" />
+    <Compile Include="tasks\config\jst.js" />
+    <Compile Include="tasks\config\less.js" />
+    <Compile Include="tasks\config\sails-linker.js" />
+    <Compile Include="tasks\config\sync.js" />
+    <Compile Include="tasks\config\uglify.js" />
+    <Compile Include="tasks\config\watch.js" />
+    <Compile Include="tasks\register\build.js" />
+    <Compile Include="tasks\register\buildProd.js" />
+    <Compile Include="tasks\register\compileAssets.js" />
+    <Compile Include="tasks\register\default.js" />
+    <Compile Include="tasks\register\linkAssets.js" />
+    <Compile Include="tasks\register\linkAssetsBuild.js" />
+    <Compile Include="tasks\register\linkAssetsBuildProd.js" />
+    <Compile Include="tasks\register\polyfill.js" />
+    <Compile Include="tasks\register\prod.js" />
+    <Compile Include="tasks\register\syncAssets.js" />
+    <Content Include="views\layouts\layout.ejs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="api" />
+    <Folder Include="api\controllers" />
+    <Folder Include="api\helpers" />
+    <Folder Include="api\models" />
+    <Folder Include="api\policies" />
+    <Folder Include="assets" />
+    <Folder Include="assets\dependencies" />
+    <Folder Include="assets\images" />
+    <Folder Include="assets\js" />
+    <Folder Include="assets\static" />
+    <Folder Include="assets\static\css" />
+    <Folder Include="assets\static\js" />
+    <Folder Include="assets\static\media" />
+    <Folder Include="assets\styles" />
+    <Folder Include="assets\templates" />
+    <Folder Include="config" />
+    <Folder Include="config\env" />
+    <Folder Include="config\locales" />
+    <Folder Include="sails-server" />
+    <Folder Include="Server" />
+    <Folder Include="tasks" />
+    <Folder Include="tasks\config" />
+    <Folder Include="tasks\register" />
+    <Folder Include="views" />
+    <Folder Include="views\layouts" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MapView from "./../MapPage/MapPage";
 import { Grid, Paper } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import SimpleTable from '../../components/SimpleTable';

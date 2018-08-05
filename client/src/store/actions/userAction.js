@@ -1,11 +1,15 @@
-import { userTypes } from "./../types";
+import { userTypes } from "./../types/userTypes";
+
 export const login = () => dispatch => {
-    dispatch({
-        type: userTypes.USER_LOGIN,
-        payload: {
-            user: {
-                name: ""
+    fetch('/users')
+        .then(response => {
+            if (!response.ok) {
+                dispatch({ type: userTypes.USER_LOGIN, payload: {} });
+                throw Error(response.statusText);
             }
-        }
-    });
+            return response;
+        })
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(() => console.log('error'));
 };

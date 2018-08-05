@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Server", "Server.njsproj", "{38FF7CDE-9032-4A45-BFA5-04FCFBC30BE4}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Client", "..\client\Client.njsproj", "{3FDA8136-6A0B-4780-90F1-61859CE9414B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38FF7CDE-9032-4A45-BFA5-04FCFBC30BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38FF7CDE-9032-4A45-BFA5-04FCFBC30BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38FF7CDE-9032-4A45-BFA5-04FCFBC30BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FDA8136-6A0B-4780-90F1-61859CE9414B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FDA8136-6A0B-4780-90F1-61859CE9414B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FDA8136-6A0B-4780-90F1-61859CE9414B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09E0204D-743E-4D7A-87CF-866F18092042}
+	EndGlobalSection
+EndGlobal

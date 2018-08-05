@@ -8,7 +8,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 //Redux
 import { connect } from 'react-redux';
 // Redux Actions
-import { simpleAction } from "./../../store/actions/simpleAction";
+import { login } from "./../../store/actions/userAction";
 //Layouts and stylings imports
 import AccessPanel from '../../layouts/AccessPanel/AccessPanel';
 import Card from "./../../components/Card/Card";
@@ -22,6 +22,9 @@ import {
 } from '@material-ui/core';
 
 class LoginPage extends Component {
+    componentWillMount() {
+        this.props.login();
+    }
     state = {
         email: `dev@correo.com`,
         password: `dev@correo.com`,
@@ -30,7 +33,6 @@ class LoginPage extends Component {
         }
     }
     render() {
-
         const { history } = this.props;
         const { from } = this.props.location.state || { from: { pathname: '/' } }
         if (localStorage.getItem(`token`)) {
@@ -47,9 +49,10 @@ class LoginPage extends Component {
                             <form noValidate autoComplete="off"
                                 onSubmit={e => {
                                     e.preventDefault();
+                                    this.props.login()
                                     // localStorage.setItem('token', userLogIn.token);
-                                    localStorage.setItem('token', 'BererToken');
-                                    history.push(`/`);
+                                    //localStorage.setItem('token', 'BererToken');
+                                    //history.push(`/`);
                                 }}
                             >
                                 <Card>
@@ -83,6 +86,9 @@ class LoginPage extends Component {
                                         <Button type="submit" fullWidth color="primary">
                                             LOGIN
                                                     </Button>
+                                        <Button type="submit" fullWidth color="primary">
+                                            ForTesting
+                                        </Button>
                                     </CardBody>
                                 </Card>
                             </form>
@@ -98,4 +104,4 @@ const mapStateToProps = state => ({
     user: state.user
 });
 
-export default withRouter(connect(mapStateToProps)(LoginPage));
+export default withRouter(connect(mapStateToProps, { login })(LoginPage));
