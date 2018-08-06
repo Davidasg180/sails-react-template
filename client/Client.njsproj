@@ -34,6 +34,13 @@
     <Compile Include="src\components\SideBar.js" />
     <Compile Include="src\components\SimpleTable.js" />
     <Compile Include="src\pages\Panel.js" />
+    <Compile Include="src\routes\panelRoutes.jsx" />
+    <Compile Include="src\services\userAuthenticationService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\services\userService.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\store\store.js" />
     <Compile Include="src\utils\generateRandomPoints.js" />
     <Content Include="src\assets\images\bg1.jpg" />
@@ -51,10 +58,7 @@
     <Compile Include="src\store\types\userTypes.js" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Client" />
     <Folder Include="public" />
-    <Folder Include="sails-react-template" />
-    <Folder Include="sails-react-template\Client" />
     <Folder Include="src" />
     <Folder Include="src\assets" />
     <Folder Include="src\assets\images" />
@@ -69,6 +73,7 @@
     <Folder Include="src\components\router" />
     <Folder Include="src\layouts" />
     <Folder Include="src\layouts\AccessPanel" />
+    <Folder Include="src\services\" />
     <Folder Include="src\pages" />
     <Folder Include="src\pages\DashboardPage" />
     <Folder Include="src\pages\LoginPage" />

@@ -15,6 +15,9 @@
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <StartWebBrowser>True</StartWebBrowser>
     <ScriptArguments>start</ScriptArguments>
+    <NodejsPort>1337</NodejsPort>
+    <DebuggerPort>
+    </DebuggerPort>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -22,7 +25,16 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Compile Include="api\controllers\entrance\signup.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="api\controllers\entrance\login.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app.js" />
+    <Compile Include="config\local.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Gruntfile.js" />
     <Content Include="assets\robots.txt" />
     <Content Include="assets\index.html" />
@@ -88,6 +100,7 @@
   <ItemGroup>
     <Folder Include="api" />
     <Folder Include="api\controllers" />
+    <Folder Include="api\controllers\entrance\" />
     <Folder Include="api\helpers" />
     <Folder Include="api\models" />
     <Folder Include="api\policies" />
@@ -104,8 +117,6 @@
     <Folder Include="config" />
     <Folder Include="config\env" />
     <Folder Include="config\locales" />
-    <Folder Include="sails-server" />
-    <Folder Include="Server" />
     <Folder Include="tasks" />
     <Folder Include="tasks\config" />
     <Folder Include="tasks\register" />
