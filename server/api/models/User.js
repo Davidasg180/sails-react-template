@@ -37,6 +37,4 @@ module.exports = {
       example: 'Lisa Microwave van der Jenny'
     },
   },
-
-
 };

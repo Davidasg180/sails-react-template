@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 module.exports = {
   friendlyName: 'Signup',
   description: 'Sign up for a new user account.',
@@ -61,9 +62,9 @@ module.exports = {
     // Store the user's new id in their session.
     this.req.session.userId = newUserRecord.id;
     sails.log.info('Skipping new account email verification... (since `verifyEmailAddresses` is disabled)');
-
     // Since everything went ok, send our 200 response.
-    return exits.success();
+    var token = jwt.sign({ user:newUserRecord.id }, sails.config.jwtSecret, { expiresIn: sails.config.jwtExpires })
+    return exits.success({ token });
 
   }
 
