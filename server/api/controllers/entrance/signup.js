@@ -63,7 +63,7 @@ module.exports = {
     this.req.session.userId = newUserRecord.id;
     sails.log.info('Skipping new account email verification... (since `verifyEmailAddresses` is disabled)');
     // Since everything went ok, send our 200 response.
-    var token = jwt.sign({ user:newUserRecord.id }, sails.config.jwtSecret, { expiresIn: sails.config.jwtExpires })
+    var token = jwt.sign({ user:newUserRecord.id }, sails.config.jwtSecret, { expiresIn: sails.config.jwtExpires });
     return exits.success({ token });
 
   }

@@ -1,4 +1,3 @@
-
 module.exports = {
   frifriendlyName: 'Login',
   description: 'Log in using the provided email and password combination.',
@@ -61,8 +60,9 @@ module.exports = {
     }
 
     // If the password doesn't match, then also exit thru "badCombo".
-    await sails.helpers.passwords.checkPassword(inputs.password, userRecord.password)
-      .intercept('incorrect', 'Unauthorized');
+    await sails.helpers.passwords
+          .checkPassword(inputs.password, userRecord.password)
+          .intercept('incorrect', 'Unauthorized');
 
     // If "Remember Me" was enabled, then keep the session alive for
     // a longer amount of time.  (This causes an updated "Set Cookie"
