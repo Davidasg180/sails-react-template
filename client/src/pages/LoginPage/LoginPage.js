@@ -23,14 +23,10 @@ import {
 
 class LoginPage extends Component {
     componentWillMount() {
-        this.props.login();
     }
     state = {
-        email: `dev@correo.com`,
-        password: `dev@correo.com`,
-        user: {
-            name: ""
-        }
+        emailAddress: ``,
+        password: ``,
     }
     render() {
         const { history } = this.props;
@@ -49,7 +45,7 @@ class LoginPage extends Component {
                             <form noValidate autoComplete="off"
                                 onSubmit={e => {
                                     e.preventDefault();
-                                    this.props.login()
+                                    this.props.login(this.state.emailAddress,this.state.password)
                                     // localStorage.setItem('token', userLogIn.token);
                                     //localStorage.setItem('token', 'BererToken');
                                     //history.push(`/`);
@@ -68,8 +64,8 @@ class LoginPage extends Component {
                                             InputLabelProps={{
                                                 shrink: true,
                                             }}
-                                            value={this.state.email}
-                                            onChange={event => this.setState({ email: event.target.value })}
+                                            value={this.state.emailAddress}
+                                            onChange={event => this.setState({ emailAddress: event.target.value })}
                                         />
                                         <TextField
                                             fullWidth
