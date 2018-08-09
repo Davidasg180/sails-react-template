@@ -10,7 +10,7 @@
 ###### Login
 
 - [x] Server: Validate user and return token
-- [ ] Server: Handle errors on login
+- [x] Server: Handle errors on login -> Note only return badrequest need a proper response
 - [x] Client: Mockup the login view
-- [ ] Client: login view user access, save token.
+- [ ] Client: login view implement: request access to server, Save token.
 - [ ] Server: implement remenberMe

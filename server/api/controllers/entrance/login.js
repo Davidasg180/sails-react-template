@@ -34,10 +34,10 @@ module.exports = {
         and exposed as \`req.me\`.)`
     },
 
-    Unauthorized: {
+    invalid: {
       description: `The provided email and password combination does not
       match any user in the database.`,
-      responseType: 'unauthorized'
+      responseType: 'badRequest',
       // ^This uses the custom `unauthorized` response located in `api/responses/unauthorized.js`.
       // To customize the generic "unauthorized" response across this entire app, change that file
       // (see api/responses/unauthorized).
@@ -54,12 +54,12 @@ module.exports = {
     });
 
     if (!userRecord) {
-      throw 'Unauthorized';
+      throw 'invalid';
     }
 
     await sails.helpers.passwords
           .checkPassword(inputs.password, userRecord.password)
-          .intercept('incorrect', 'Unauthorized');
+          .intercept('incorrect', 'invalid');
 
     // Modify the active session instance.
     this.req.session.userId = userRecord.id;
