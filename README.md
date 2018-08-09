@@ -1,13 +1,13 @@
-# PERSONAL TEMPLATE FOR INITIATE A PROJECT ON REACT AND REACTJS
+# TEMPLATE FOR INITIATE A PROJECT WITH SAILS AND REACTJS
 
 ## TODO
 
-####SignUp
+######SignUp
 
 - [ ] Server: Validate for unique, create, and return generated token
 - [ ] Client: Mockup the signUp view.
 
-####Login
+######Login
 
 - [ ] Server: Validate user and return token
 - [x] Client: Mockup the login view
