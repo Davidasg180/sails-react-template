@@ -28,7 +28,7 @@ module.exports.bootstrap = async function (done) {
   // ```
 
   await User.create({
-    emailAddress: 'david@email.com',
+    emailAddress: 'dev@email.com',
     password: await sails.helpers.passwords.hashPassword('pass'),
     fullName: "David Alberto Serrano Garcia"
   });
