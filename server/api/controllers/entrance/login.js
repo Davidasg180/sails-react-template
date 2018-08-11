@@ -65,6 +65,6 @@ module.exports = {
     this.req.session.userId = userRecord.id;
     var token = jwt.sign({ user:userRecord.id }, sails.config.jwtSecret, { expiresIn: sails.config.jwtExpires });
     // Send success response (this is where the session actually gets persisted)
-    return exits.success({ token });
+    return exits.success({token, userRecord});
   }
 }

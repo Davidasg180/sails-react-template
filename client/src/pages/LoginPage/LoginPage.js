@@ -8,7 +8,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 //Redux
 import { connect } from 'react-redux';
 // Redux Actions
-import { login } from "./../../store/actions/userAction";
+import { login } from "./../../store/actions/authentication.action";
 //Layouts and stylings imports
 import AccessPanel from '../../layouts/AccessPanel/AccessPanel';
 import Card from "./../../components/Card/Card";
@@ -100,4 +100,8 @@ const mapStateToProps = state => ({
     user: state.user
 });
 
-export default withRouter(connect(mapStateToProps, { login })(LoginPage));
+// const mapDispatchToProps = dispatch = ({
+//     login: ( emailAddress,password ) => dispatch( emailAddress,package )
+// });
+
+export default withRouter( connect( mapStateToProps, { login } )( LoginPage ) );

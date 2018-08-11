@@ -37,4 +37,8 @@ module.exports = {
       example: 'Lisa Microwave van der Jenny'
     },
   },
+  customToJSON: function() {
+    // Return a shallow copy of this record with the password and ssn removed.
+    return _.omit(this, ['password'])
+  }
 };
