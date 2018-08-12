@@ -1,5 +1,5 @@
-import authenticationTypes from "../types/authenticationTypes";
-import AuthenticationService from "../../services/authenticationService";
+import { authenticationTypes } from "../types/authenticationTypes";
+import { AuthenticationService } from "../../services/authenticationService";
 
 export const login = ( emailAddress, password ) => dispatch => {
 

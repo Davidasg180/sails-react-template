@@ -1,0 +1,3 @@
+E:\Documents\_Personal\_Programing\Sail React Template\sails-react-template\client\obj\Debug\Client.njsprojAssemblyReference.cache
+E:\Documents\_Personal\_Programing\Sail React Template\sails-react-template\client\obj\Debug\Client.njsproj.CoreCompileInputs.cache
+E:\Documents\_Personal\_Programing\Sail React Template\sails-react-template\client\bin\Microsoft.NodejsTools.WebRole.dll

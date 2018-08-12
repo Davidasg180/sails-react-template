@@ -13,8 +13,8 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
-    <StartWebBrowser>True</StartWebBrowser>
-    <ScriptArguments>start</ScriptArguments>
+    <StartWebBrowser>False</StartWebBrowser>
+    <ScriptArguments>start --verbose</ScriptArguments>
     <NodejsPort>1337</NodejsPort>
     <DebuggerPort>
     </DebuggerPort>
@@ -29,6 +29,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="api\controllers\entrance\login.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="api\hooks\myhook\index.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app.js" />
@@ -102,7 +105,9 @@
     <Folder Include="api\controllers" />
     <Folder Include="api\controllers\entrance\" />
     <Folder Include="api\helpers" />
+    <Folder Include="api\hooks\myhook\" />
     <Folder Include="api\models" />
+    <Folder Include="api\hooks\" />
     <Folder Include="api\policies" />
     <Folder Include="assets" />
     <Folder Include="assets\dependencies" />

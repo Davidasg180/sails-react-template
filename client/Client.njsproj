@@ -35,13 +35,13 @@
     <Compile Include="src\components\SimpleTable.js" />
     <Compile Include="src\pages\Panel.js" />
     <Compile Include="src\routes\panelRoutes.jsx" />
-    <Compile Include="src\services\userAuthenticationService.js">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="src\services\authenticationService.js" />
     <Compile Include="src\services\userService.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\store\reducers\authentication.reducer.js" />
     <Compile Include="src\store\store.js" />
+    <Compile Include="src\store\types\authenticationTypes.js" />
     <Compile Include="src\utils\generateRandomPoints.js" />
     <Content Include="src\assets\images\bg1.jpg" />
     <Content Include="src\assets\images\bg2.jpg" />
@@ -52,10 +52,7 @@
     <Content Include="src\pages\LoginPage\LoginPage.css" />
     <Compile Include="src\pages\LoginPage\LoginPage.js" />
     <Compile Include="src\pages\UsersPage\UsersPage.js" />
-    <Compile Include="src\store\actions\userAction.js" />
     <Compile Include="src\store\reducers\rootReducer.js" />
-    <Compile Include="src\store\reducers\userReducer.js" />
-    <Compile Include="src\store\types\userTypes.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="public" />

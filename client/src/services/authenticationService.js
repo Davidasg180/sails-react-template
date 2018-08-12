@@ -1,7 +1,7 @@
 ﻿/**
  * POST /api/v1/login
  * */
-export function login() {
+export function login( emailAddress, password ) {
     
     var requestOptions = {
         method: 'PUT',
@@ -18,7 +18,7 @@ export function login() {
     return fetch('/api/v1/account/login',requestOptions)
         .then(handleResponse)
         .then(response => {
-            if (user.token){
+            if (response.token){
                 localStorage.setItem('token', JSON.stringify(response.token));
                 localStorage.setItem('user',JSON.stringify(response.user));
             }
@@ -47,7 +47,7 @@ function handleResponse(response) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
                 logout();
-                location.reload(true);
+                //location.reload(true);
             }
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);
@@ -56,6 +56,6 @@ function handleResponse(response) {
     });
 }
 
-export default AuthenticationService = {
+export const AuthenticationService = {
     login
 }

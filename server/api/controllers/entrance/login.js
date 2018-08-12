@@ -49,22 +49,22 @@ module.exports = {
   },
   fn: async function (inputs, exits) {
     
-    var userRecord = await User.findOne({
+    var user = await User.findOne({
       emailAddress: inputs.emailAddress.toLowerCase(),
     });
 
-    if (!userRecord) {
+    if (!user) {
       throw 'invalid';
     }
 
     await sails.helpers.passwords
-          .checkPassword(inputs.password, userRecord.password)
+          .checkPassword(inputs.password, user.password)
           .intercept('incorrect', 'invalid');
 
     // Modify the active session instance.
-    this.req.session.userId = userRecord.id;
-    var token = jwt.sign({ user:userRecord.id }, sails.config.jwtSecret, { expiresIn: sails.config.jwtExpires });
+    //this.req.session.userId = user.id;
+    var token = jwt.sign({ user:user.id }, sails.config.jwtSecret, { expiresIn: sails.config.jwtExpires });
     // Send success response (this is where the session actually gets persisted)
-    return exits.success({token, userRecord});
+    return exits.success(sails.hooks.myhook.formatObject({token, user}));
   }
 }

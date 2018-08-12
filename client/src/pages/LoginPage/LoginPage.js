@@ -100,8 +100,8 @@ const mapStateToProps = state => ({
     user: state.user
 });
 
-// const mapDispatchToProps = dispatch = ({
-//     login: ( emailAddress,password ) => dispatch( emailAddress,package )
-// });
+ const mapDispatchToProps = dispatch = ({
+     login: ( emailAddress,password ) => dispatch( emailAddress,package )
+ });
 
-export default withRouter( connect( mapStateToProps, { login } )( LoginPage ) );
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)( LoginPage ) );
