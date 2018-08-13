@@ -29,6 +29,9 @@
     <Content Include="src\index.css" />
     <Compile Include="src\App.js" />
     <Compile Include="src\App.test.js" />
+    <Compile Include="src\history.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\index.js" />
     <Compile Include="src\registerServiceWorker.js" />
     <Compile Include="src\components\SideBar.js" />
@@ -39,6 +42,7 @@
     <Compile Include="src\services\userService.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\store\actions\authentication.action.js" />
     <Compile Include="src\store\reducers\authentication.reducer.js" />
     <Compile Include="src\store\store.js" />
     <Compile Include="src\store\types\authenticationTypes.js" />

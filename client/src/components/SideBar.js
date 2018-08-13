@@ -1,7 +1,16 @@
 ﻿import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+
+//Redux
+import { connect } from 'react-redux';
+import { logout } from './../store/actions/authentication.action'
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import { withStyles } from '@material-ui/core/styles';
+
+//Material UI
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -11,7 +20,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Lock from '@material-ui/icons/Lock';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import { Link, withRouter } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -97,18 +105,6 @@ function RoutesList(props) {
     });
 }
 
-const LogoutLink = withRouter(({ history, ...props }) => (
-    <a
-        onClick={() => {
-            localStorage.removeItem(`token`);
-            history.push('/')
-        }}
-    >
-        {props.children}
-    </a>
-))
-
-
 class MiniDrawer extends React.Component {
     state = {
         open: false
@@ -121,8 +117,7 @@ class MiniDrawer extends React.Component {
         this.setState({ open: false });
     };
     render() {
-        const { classes, theme, routes } = this.props;
-
+        const { classes, theme, routes, history } = this.props;
         return (
             <Drawer
                 variant="permanent"
@@ -162,14 +157,20 @@ class MiniDrawer extends React.Component {
                 <List style={{
                     marginTop: `auto`
                 }}>
-                    <LogoutLink>
+                    <a
+                        onClick={() => {
+                            this.props.logout().then(() => {
+                                history.push('/');
+                            });
+                        }}
+                    >
                         <ListItem button>
                             <ListItemIcon>
                                 <Lock />
                             </ListItemIcon>
                             <ListItemText primary='Logout' />
                         </ListItem>
-                    </LogoutLink>
+                    </a>
                 </List>
             </Drawer>
         );
@@ -181,4 +182,10 @@ MiniDrawer.propTypes = {
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(MiniDrawer);
+
+const mapDispatchToProps = dispatch => ({
+    logout: () => dispatch(logout())
+});
+
+
+export default withRouter(connect(null, mapDispatchToProps)(withStyles(styles, { withTheme: true })(MiniDrawer)));

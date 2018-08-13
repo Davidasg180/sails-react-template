@@ -1,8 +1,8 @@
 ﻿/**
  * POST /api/v1/login
  * */
-export function login( emailAddress, password ) {
-    
+export function login(emailAddress, password) {
+
     var requestOptions = {
         method: 'PUT',
         headers: {
@@ -10,21 +10,21 @@ export function login( emailAddress, password ) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-                emailAddress,
-                password
+            emailAddress,
+            password
         })
     };
 
-    return fetch('/api/v1/account/login',requestOptions)
+    return fetch('/api/v1/account/login', requestOptions)
         .then(handleResponse)
         .then(response => {
-            if (response.token){
+            if (response.token) {
                 localStorage.setItem('token', JSON.stringify(response.token));
-                localStorage.setItem('user',JSON.stringify(response.user));
+                localStorage.setItem('user', JSON.stringify(response.user));
             }
             return response.user;
         })
-        .catch(() => console.log('error'));
+        .catch(error => { console.log(error); throw error });
 }
 
 /*
@@ -36,8 +36,12 @@ function signUp() { }
  * POST /api/v1/signin
  * */
 function logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    return new Promise(
+        (resolve, reject) => {
+            if (!localStorage.clear()) reject(false);
+            resolve(true);
+        }
+    );
 }
 
 function handleResponse(response) {
@@ -57,5 +61,6 @@ function handleResponse(response) {
 }
 
 export const AuthenticationService = {
-    login
+    login,
+    logout
 }

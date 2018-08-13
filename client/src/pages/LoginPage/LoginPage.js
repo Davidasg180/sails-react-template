@@ -45,10 +45,11 @@ class LoginPage extends Component {
                             <form noValidate autoComplete="off"
                                 onSubmit={e => {
                                     e.preventDefault();
-                                    this.props.login(this.state.emailAddress,this.state.password)
-                                    // localStorage.setItem('token', userLogIn.token);
-                                    //localStorage.setItem('token', 'BererToken');
-                                    //history.push(`/`);
+                                    this.props.login(this.state.emailAddress, this.state.password).then(() => {
+                                        history.push(`/`);
+                                    }).catch(error => {
+                                        alert('error: ' + error);
+                                    });
                                 }}
                             >
                                 <Card>
@@ -100,8 +101,10 @@ const mapStateToProps = state => ({
     user: state.user
 });
 
- const mapDispatchToProps = dispatch = ({
-     login: ( emailAddress,password ) => dispatch( emailAddress,package )
- });
+const mapDispatchToProps = dispatch => ({
+    login: (emailAddress, password) => dispatch(login(emailAddress, password))
+});
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)( LoginPage ) );
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(LoginPage)
+);
