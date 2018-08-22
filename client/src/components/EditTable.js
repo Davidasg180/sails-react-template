@@ -1,16 +1,21 @@
 ﻿import React, {
     Component
-}                       from 'react';
-import PropTypes        from 'prop-types';
-import { withStyles }   from '@material-ui/core/styles';
-import Table            from '@material-ui/core/Table';
-import TableBody        from '@material-ui/core/TableBody';
-import TableCell        from '@material-ui/core/TableCell';
-import TableHead        from '@material-ui/core/TableHead';
-import TableRow         from '@material-ui/core/TableRow';
-import TextField        from '@material-ui/core/TextField';
-import Paper            from '@material-ui/core/Paper';
-import Checkbox            from '@material-ui/core/Checkbox';
+} from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
+import IconButton from '@material-ui/core/IconButton';
+import Checkbox from '@material-ui/core/Checkbox';
+
+import Delete from '@material-ui/icons/Delete';
+import ModeEdit from '@material-ui/icons/ModeEdit';
+
 const styles = theme => ({
     root: {
         width: '100%',
@@ -62,14 +67,29 @@ class EditTable extends Component {
 
     getCellValue(cell) {
 
-        const value = cell && cell.value
+        var value = cell && cell.value;
+        var button = <ModeEdit />
+
+        var deleteButton = <IconButton
+            tooltip={'Delete this row'}
+        >
+            <Delete />
+        </IconButton>;
+
+        const checkbox = <IconButton>
+            {button}
+        </IconButton>
 
         return (
-            <TextField
-                id="name"
-                value={value}
-                margin="normal"
-            />
+            <div>
+                { checkbox }
+                <TextField
+                    id="name"
+                    value={value}
+                    margin="normal"
+                />
+                { deleteButton }
+            </div>
         );
     }
 

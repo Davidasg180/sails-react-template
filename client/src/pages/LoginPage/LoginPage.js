@@ -25,8 +25,8 @@ class LoginPage extends Component {
     componentWillMount() {
     }
     state = {
-        emailAddress: ``,
-        password: ``,
+        emailAddress: `dev@email.com`,
+        password: `pass`,
     }
     render() {
         const { history } = this.props;

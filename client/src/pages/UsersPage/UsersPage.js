@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 import EditTable from '../../components/EditTable';
+import { Grid } from '@material-ui/core';
 
 //var headers = [`id`, `email`];
 
@@ -18,21 +19,24 @@ var rows = [
             { value: 'Davids' }
         ]
     }
-    //{
-    //    id: 1,
-    //    email: "someEmail@gmail.com"
-    //}
 ];
 
 class UsersPage extends Component {
     render() {
         return (
-            <EditTable
-                //onChange={onChange}
-                //onDelete={onDelete}
-                rows={rows}
-                headerColumns={headers}
-            />
+            <Grid container
+            spacing={0}
+            justify='center'
+            >
+                <Grid item xs={11}>
+                    <EditTable
+                        //onChange={onChange}
+                        //onDelete={onDelete}
+                        rows={rows}
+                        headerColumns={headers}
+                    />
+                </Grid>
+            </Grid>
         );
     }
 }
