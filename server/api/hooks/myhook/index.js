@@ -21,8 +21,6 @@ module.exports = function (sails) {
     routes: {
       after: {
         '/*': function (req, res, next) {
-          //return res.json(snakeCaseKeys(res));
-          console.log('fuccckkkk yea');
           return next();
         }
       }

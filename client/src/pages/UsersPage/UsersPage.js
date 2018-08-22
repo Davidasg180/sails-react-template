@@ -1,22 +1,38 @@
 ﻿import React, { Component } from 'react';
-import SimpleTable from '../../components/SimpleTable';
+import EditTable from '../../components/EditTable';
 
-var Fields = [`id`, `email`];
+//var headers = [`id`, `email`];
 
-var data = [
+const headers = [
+    { value: 'Name', type: 'TextField', width: 200 },
+    //{ value: 'Address', type: 'TextField', width: 200 },
+    //{ value: 'Phone', type: 'TextField', width: 200 },
+    //{ value: 'Date', type: 'DatePicker', width: 200 },
+    //{ value: 'Enabled', type: 'Toggle', width: 50 },
+    //{ value: 'Last Edited By', type: 'ReadOnly', width: 100 }
+];
+
+var rows = [
     {
-        id: 1,
-        email: "someEmail@gmail.com"
+        columns: [
+            { value: 'Davids' }
+        ]
     }
+    //{
+    //    id: 1,
+    //    email: "someEmail@gmail.com"
+    //}
 ];
 
 class UsersPage extends Component {
     render() {
         return (
-            <div>
-                <h1>Users</h1>
-                <SimpleTable columns={Fields} data={data} />
-            </div>
+            <EditTable
+                //onChange={onChange}
+                //onDelete={onDelete}
+                rows={rows}
+                headerColumns={headers}
+            />
         );
     }
 }
