@@ -38,57 +38,87 @@ class EditTable extends Component {
         return (
             <TableHead>
                 <TableRow>
-                    <TableCell padding="checkbox">
-                        <Checkbox
-                        />
+                    <TableCell>
+                        <Checkbox/>
                     </TableCell>
+                    <TableCell></TableCell>
                     {headersColumns.map((item, id) => {
                         return (
                             <TableCell key={id} numeric>{item.value}</TableCell>
                         );
                     })}
+
+                    <TableCell>
+                    </TableCell>
                 </TableRow>
             </TableHead>
         );
     }
 
     renderRow(row) {
+
+        const deleteButtonStyle = {
+            display: 'flex',
+            flexFlow: 'row nowrap',
+            width: 50,
+            height: 24,
+            alignItems: 'center',
+            padding: '0 12 0'
+        }
+
+        const checkboxStyle = {
+            display: 'flex',
+            flexFlow: 'row nowrap',
+            width: 50,
+            height: 24,
+            alignItems: 'center'
+        }
+
+
         var columns = row.columns;
-        return (
-            <TableRow key={row.id}>
-                {columns.map(cell => {
-                    return (
-                        <TableCell key={cell + `-` + cell.id} numeric>{this.getCellValue(cell)}</TableCell>
-                    );
-                })}
-            </TableRow>
-        );
-    }
-
-    getCellValue(cell) {
-
-        var value = cell && cell.value;
         var button = <ModeEdit />
-
         var deleteButton = <IconButton
+            style={deleteButtonStyle}
             tooltip={'Delete this row'}
         >
             <Delete />
         </IconButton>;
 
-        const checkbox = <IconButton>
+        const checkbox = <IconButton
+            style={checkboxStyle}
+        >
             {button}
         </IconButton>
 
         return (
+            <TableRow key={row.id}>
+                <TableCell>
+                    <Checkbox/>
+                </TableCell>
+                <TableCell>{checkbox}</TableCell>
+                {columns.map(cell => {
+                    return (
+                        <TableCell key={cell + `-` + cell.id} numeric>{this.renderCell(cell)}</TableCell>
+                    );
+                })}
+                <TableCell>{deleteButton}</TableCell>
+            </TableRow>
+        );
+    }
+
+    renderCell(cell) {
+
+        var value = cell && cell.value;
+
+        return (
             <div>
-                { checkbox }
-                <TextField
+
+                {/* <TextField
                     id="name"
                     value={value}
                     margin="normal"
-                />
-                { deleteButton }
+                /> */}
+                {value}
             </div>
         );
     }
