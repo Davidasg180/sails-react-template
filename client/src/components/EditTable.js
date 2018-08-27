@@ -38,17 +38,19 @@ class EditTable extends Component {
         return (
             <TableHead>
                 <TableRow>
-                    <TableCell>
-                        <Checkbox/>
-                    </TableCell>
-                    <TableCell></TableCell>
+                    <TableCell style={{ width: 10 }}>
+                        <Checkbox
+                            color="colorPrimary"
+                        />
+                    </TableCell >
+                    <TableCell style={{ width: 10 }}></TableCell>
                     {headersColumns.map((item, id) => {
                         return (
-                            <TableCell key={id} numeric>{item.value}</TableCell>
+                            <TableCell key={id}>{item.value}</TableCell>
                         );
                     })}
-
-                    <TableCell>
+                    <TableCell
+                        style={{width:10}}>
                     </TableCell>
                 </TableRow>
             </TableHead>
@@ -56,7 +58,6 @@ class EditTable extends Component {
     }
 
     renderRow(row) {
-
         const deleteButtonStyle = {
             display: 'flex',
             flexFlow: 'row nowrap',
@@ -78,27 +79,30 @@ class EditTable extends Component {
         var columns = row.columns;
         var button = <ModeEdit />
         var deleteButton = <IconButton
-            style={deleteButtonStyle}
-            tooltip={'Delete this row'}
+                tooltip={'Delete this row'}
         >
             <Delete />
         </IconButton>;
 
-        const checkbox = <IconButton
-            style={checkboxStyle}
-        >
+        const checkbox = <IconButton>
             {button}
         </IconButton>
 
         return (
-            <TableRow key={row.id}>
+            <TableRow style={{
+                backgroundColor: 'rgb(194, 219, 255)',
+                borderLeft: 'solid 5px #4d90f0'
+            }}
+                key={row.id}>
                 <TableCell>
-                    <Checkbox/>
+                    <Checkbox
+                        color="colorPrimary"
+                    />
                 </TableCell>
                 <TableCell>{checkbox}</TableCell>
                 {columns.map(cell => {
                     return (
-                        <TableCell key={cell + `-` + cell.id} numeric>{this.renderCell(cell)}</TableCell>
+                        <TableCell key={cell + `-` + cell.id} >{this.renderCell(cell)}</TableCell>
                     );
                 })}
                 <TableCell>{deleteButton}</TableCell>
